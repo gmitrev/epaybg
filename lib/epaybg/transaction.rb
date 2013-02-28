@@ -41,6 +41,14 @@ module Epaybg
       res.body
     end
 
+    def epay_link
+      "#{self.url}/?PAGE=paylogin&ENCODED=#{self.encoded}&CHECKSUM=#{self.checksum}&URL_OK=#{self.url_ok}&URL_CANCEL=#{self.url_cancel}"
+    end
+
+    def credit_card_link
+      "#{self.url}/?PAGE=credit_paydirect&ENCODED=#{self.encoded}&CHECKSUM=#{self.checksum}&URL_OK=#{self.url_ok}&URL_CANCEL=#{self.url_cancel}" 
+    end
+
     private
 
     def validate!
