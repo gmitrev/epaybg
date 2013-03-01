@@ -1,4 +1,4 @@
-Copyright (c) 2013 georgi
+Copyright (c) 2013 gmitrev
 
 MIT License
 

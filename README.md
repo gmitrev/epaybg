@@ -1,6 +1,5 @@
 # Epaybg
-
-TODO: Write a gem description
+[![Code Climate](https://codeclimate.com/github/gmitrev/epaybg.png)](https://codeclimate.com/github/gmitrev/epaybg)
 
 ## Installation
 
