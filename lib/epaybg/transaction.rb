@@ -7,8 +7,11 @@ module Epaybg
     attr_accessor :url, :url_idn, :invoice, :amount, :expires_on,
       :description, :encoding, :url_ok, :url_cancel
 
-    def initialize
+    def initialize(args = {})
       set_defaults!
+      args.each do |k,v|
+        instance_variable_set("@#{k}", v) unless v.nil?
+      end
       yield self if block_given?
       validate!
     end
@@ -32,7 +35,7 @@ module Epaybg
     end
 
     def register_payment
-      uri = URI "#{@url_idn}/?ENCODED=#{self.encoded}&CHECKSUM=#{self.checksum}"
+      uri = URI("#{self.url_idn}/?ENCODED=#{self.encoded}&CHECKSUM=#{self.checksum}")
 
       http             = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl     = true
@@ -42,14 +45,18 @@ module Epaybg
     end
 
     def epay_link
-      "#{self.url}/?PAGE=paylogin&ENCODED=#{self.encoded}&CHECKSUM=#{self.checksum}&URL_OK=#{self.url_ok}&URL_CANCEL=#{self.url_cancel}"
+      base_link "paylogin"
     end
 
     def credit_card_link
-      "#{self.url}/?PAGE=credit_paydirect&ENCODED=#{self.encoded}&CHECKSUM=#{self.checksum}&URL_OK=#{self.url_ok}&URL_CANCEL=#{self.url_cancel}" 
+      base_link "credit_paydirect"
     end
 
     private
+
+    def base_link(action)
+      "#{self.url}/?PAGE=#{action}&ENCODED=#{self.encoded}&CHECKSUM=#{self.checksum}&URL_OK=#{self.url_ok}&URL_CANCEL=#{self.url_cancel}" 
+    end
 
     def validate!
       [:invoice, :amount, :expires_on].each do |a|
@@ -58,9 +65,9 @@ module Epaybg
     end
 
     def set_defaults!
+      @url      ||= Epaybg.config["url"]
+      @url_idn  ||= Epaybg.config["url_idn"]
       @encoding ||= 'utf-8'
-      @url ||= "https://demo.epay.bg"
-      @url_idn ||= "https://demo.epay.bg/ezp/reg_bill.cgi"
     end
 
   end

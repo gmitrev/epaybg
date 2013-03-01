@@ -7,7 +7,7 @@ module Epaybg
     end
 
     initializer "epaybg.configure" do |app|
-      Epaybg.config = YAML.load_file(app.root.join("config", "epaybg.yml"))[Rails.env]
+      Epaybg.config = YAML.load_file(app.root.join("config", "epaybg.yml"))
     end
   end
 end
