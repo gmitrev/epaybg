@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.version       = Epaybg::VERSION
   gem.authors       = ["gmitrev"]
   gem.email         = ["gvmitrev@gmail.com"]
-  gem.description   = %q{Framework for dealing with epay.bg payments.}
+  gem.description   = %q{Gem for dealing with epay.bg payments.}
   gem.summary       = %q{Epaybg provides integration with the epay.bg payment services. It supports payments through epay.bg, credit cards and in EasyPay offices. }
   gem.homepage      = "http://github.com/gmitrev/epaybg"
 

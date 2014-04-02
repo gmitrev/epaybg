@@ -20,11 +20,11 @@ module Epaybg
       exp_time = self.expires_on.strftime("%d.%m.%Y")
 
       data = <<-DATA
-        MIN=#{Epaybg.config["min"]}
-        LANG=bg
-        INVOICE=#{self.invoice}
-        AMOUNT=#{self.amount}
-        EXP_TIME=#{exp_time}
+MIN=#{Epaybg.config["min"]}
+LANG=bg
+INVOICE=#{self.invoice}
+AMOUNT=#{self.amount}
+EXP_TIME=#{exp_time}
       DATA
 
       Base64.strict_encode64(data)

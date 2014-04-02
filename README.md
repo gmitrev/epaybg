@@ -1,6 +1,7 @@
 # Epaybg
 [![Code Climate](https://codeclimate.com/github/gmitrev/epaybg.png)](https://codeclimate.com/github/gmitrev/epaybg)
 [![Build Status](https://travis-ci.org/gmitrev/epaybg.png?branch=master)](https://travis-ci.org/gmitrev/epaybg)
+!https://coveralls.io/repos/gmitrev/epaybg/badge.png?branch=master(Coverage Status)!:https://coveralls.io/r/gmitrev/epaybg
 
 ## Installation
 
