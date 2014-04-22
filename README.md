@@ -17,8 +17,15 @@ Or install it yourself as:
     $ gem install epaybg
 
 ## Usage
+Handle a response callback from epay:
 
-TODO: Write usage instructions here
+    response = Epaybg::Response.new(params[:encoded], params[:checksum])
+    response.valid?
+    # => true
+    
+    response.status
+    # => "PAID"
+
 
 ## Contributing
 
