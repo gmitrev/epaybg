@@ -29,6 +29,14 @@ module Epaybg
       to_hash["INVOICE"]
     end
 
+    def stan
+      to_hash["STAN"] if status == "PAID"
+    end
+
+    def bcode
+      to_hash["BCODE"] if status == "PAID"
+    end
+
     def paid_on
       DateTime.parse(to_hash["PAY_TIME"]) if status == "PAID"
     end

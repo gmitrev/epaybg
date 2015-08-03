@@ -24,7 +24,7 @@ module Epaybg
       @@mode = mode
     end
 
-    @@mode = :production
+    @@mode = :test
 
     # A hash containing the configuration options found in the
     # config/epaybg.yml file.
@@ -35,6 +35,6 @@ module Epaybg
     def config=(config)
       @@config = config
     end
-      
+
   end
 end

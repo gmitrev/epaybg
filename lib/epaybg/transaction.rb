@@ -55,7 +55,7 @@ EXP_TIME=#{exp_time}
     private
 
     def base_link(action)
-      "#{self.url}/?PAGE=#{action}&ENCODED=#{self.encoded}&CHECKSUM=#{self.checksum}&URL_OK=#{self.url_ok}&URL_CANCEL=#{self.url_cancel}" 
+      "#{self.url}/?PAGE=#{action}&ENCODED=#{self.encoded}&CHECKSUM=#{self.checksum}&URL_OK=#{self.url_ok}&URL_CANCEL=#{self.url_cancel}"
     end
 
     def validate!
