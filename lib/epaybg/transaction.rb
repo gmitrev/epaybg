@@ -3,7 +3,7 @@ require 'net/http'
 module Epaybg
   class Transaction
     attr_accessor :url, :url_idn, :invoice, :amount, :expires_on,
-                  :description, :encoding, :url_ok, :url_cancel
+                  :description, :encoding, :url_ok, :url_cancel, :min, :secret
 
     def initialize(args = {})
       set_defaults!
@@ -18,7 +18,7 @@ module Epaybg
       exp_time = expires_on.strftime('%d.%m.%Y')
 
       data = <<-DATA
-MIN=#{Epaybg.config['min']}
+MIN=#{min}
 LANG=bg
 INVOICE=#{invoice}
 AMOUNT=#{amount}
@@ -29,7 +29,7 @@ EXP_TIME=#{exp_time}
     end
 
     def checksum
-      Epaybg.hmac(encoded)
+      Epaybg.hmac(encoded, secret)
     end
 
     def register_payment
@@ -66,6 +66,8 @@ EXP_TIME=#{exp_time}
       @url ||= Epaybg.config['url']
       @url_idn ||= Epaybg.config['url_idn']
       @encoding ||= 'utf-8'
+      @min ||= Epaybg.config['min']
+      @secret ||= Epaybg.config['secret']
     end
   end
 end
