@@ -16,8 +16,8 @@ module Epaybg
       Hash[*i]
     end
 
-    def valid?
-      Epaybg.hmac(@encoded) == @checksum
+    def valid? secret
+      Epaybg.hmac(@encoded, secret) == @checksum
     end
 
     def status
