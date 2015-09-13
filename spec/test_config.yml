@@ -1,0 +1,11 @@
+production:
+  secret: YOUR-SECRET-KEY
+  min: YOUR-MIN
+  url: "https://epay.bg"
+  url_idn: "https://epay.bg/ezp/reg_bill.cgi"
+
+test:
+  secret: YOUR-SECRET-KEY
+  min: YOUR-MIN
+  url: "https://demo.epay.bg"
+  url_idn: "https://demo.epay.bg/ezp/reg_bill.cgi"

@@ -5,3 +5,7 @@ RSpec::Core::RakeTask.new
 
 task default: :spec
 task test: :spec
+
+task :console do
+  exec "irb -r epaybg -I ./lib"
+end

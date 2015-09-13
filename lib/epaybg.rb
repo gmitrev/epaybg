@@ -1,12 +1,12 @@
-require 'epaybg/railtie'
+require 'epaybg/railtie' if defined?(Rails)
 require 'epaybg/transaction'
 require 'epaybg/response'
 require 'epaybg/version'
 
 module Epaybg
   class << self
-    def hmac(data)
-      OpenSSL::HMAC.hexdigest('sha1', config['secret'], data)
+    def hmac(data, secret)
+      OpenSSL::HMAC.hexdigest('sha1', secret, data)
     end
 
     # Configuration is loaded based on this property.
