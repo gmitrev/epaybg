@@ -45,7 +45,7 @@ module Epaybg
     end
 
     def response_for(status)
-      response_statuses = [:ok, :err]
+      response_statuses = [:ok, :err, :no]
       raise "Status must be one of #{response_statuses}" unless response_statuses.include? status
       "INVOICE=#{to_hash['INVOICE']}:STATUS=#{status.to_s.upcase}"
     end
