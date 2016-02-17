@@ -2,6 +2,7 @@ require 'epaybg/railtie' if defined?(Rails)
 require 'epaybg/transaction'
 require 'epaybg/response'
 require 'epaybg/version'
+require 'epaybg/recurring'
 
 module Epaybg
   class << self
