@@ -16,7 +16,6 @@ describe 'Recurring Payments' do
 
   describe 'Recurring module methods' do
     it 'should parse a request string' do
-      result = Epaybg::Recurring.parse_request_body(request_string)
       expect(debt_params).to be_kind_of Hash
       expect(debt_params['xtype']).to eq 'QBN'
       expect(debt_params['idn']).to eq '6460392'
